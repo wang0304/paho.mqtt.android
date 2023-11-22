@@ -2,11 +2,16 @@
 
 buildscript {
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         jcenter()
         mavenCentral()
     }
     dependencies {
-	    classpath 'com.android.tools.build:gradle:2.2.3'
+	    classpath 'com.android.tools.build:gradle:7.1.2'
+//        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21' //1.8.10
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -14,9 +19,8 @@ buildscript {
 
 ext{
 
-    compileSdkVersion = 24
+    compileSdkVersion = 33
     buildToolsVersion = '23.0.3'
-
 
     group = 'org.eclipse.paho'
 
@@ -57,6 +61,23 @@ println "SDK dir: $sdkDir"
 allprojects {
 
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://jitpack.io' }
+
+        //  个推
+        maven {
+            url "https://mvn.gt.getui.com/nexus/content/repositories/releases/"
+        }
+        maven {
+            url 'https://mvn.getui.com/nexus/content/repositories/releases'
+        }
+        maven { url "https://mirrors.tencent.com/nexus/repository/maven-public/" }
+        //google()
+
+        mavenCentral()
+        maven { url "https://jitpack.io" }
         jcenter()
         maven {
             url "file://$sdkDir/extras/android/m2repository/"
